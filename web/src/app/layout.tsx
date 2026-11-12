@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaintenanceGate } from "@/components/MaintenanceGate";
 import { getSettings, imageUrl } from "@/lib/sanity";
-import { siteUrl } from "@/lib/nav";
+import { siteUrl, underConstruction } from "@/lib/nav";
 import "./globals.css";
 
 // next/font speichert die Schriften beim Build auf der Website selbst – keine Verbindung zu Google beim Besuch
@@ -15,14 +15,15 @@ const body = Nunito_Sans({ variable: "--font-body", subsets: ["latin"] });
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   const siteName = settings.siteName ?? "Astivita";
-  // Bild beim Teilen (WhatsApp, Facebook, …): aus dem Studio, sonst das Logo
-  const shareImage = imageUrl(settings.shareImage, { width: 1200, height: 630 }) ?? "/og.png";
+  // Bild beim Teilen (WhatsApp, Facebook, …): im Aufbau mit Kurkuma-Hinweis, danach aus dem Studio oder das Logo
+  const shareImage = underConstruction ? "/og-aufbau.png" : (imageUrl(settings.shareImage, { width: 1200, height: 630 }) ?? "/og.png");
+  const shareAlt = underConstruction ? `${siteName} Hundetherapie – neue Website im Aufbau von Kurkuma Communication` : `${siteName} Hundetherapie`;
   return {
     title: { default: `${siteName} Hundetherapie – Physiotherapie für Hunde in Uezwil AG`, template: `%s | ${siteName} Hundetherapie` },
     description: settings.heroText ?? undefined,
     metadataBase: new URL(siteUrl),
     alternates: { canonical: "./" },
-    openGraph: { images: [{ url: shareImage, width: 1200, height: 630, alt: `${siteName} Hundetherapie` }], locale: "de_CH", siteName, type: "website" },
+    openGraph: { images: [{ url: shareImage, width: 1200, height: 630, alt: shareAlt }], locale: "de_CH", siteName, type: "website" },
     twitter: { card: "summary_large_image" },
   };
 }
