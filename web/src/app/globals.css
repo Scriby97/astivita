@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dunkelblau aus dem Logo, dazu warmes Creme/Sand und ein ruhiges Salbeigrün.
+     Text- und Linkfarben erreichen mind. 4.5:1 Kontrast auf Creme, Sand und Weiss (WCAG AA). */
+  --color-navy: #092d5c;
+  --color-navy-dark: #061f40;
+  --color-ink: #1b2638;
+  --color-muted: #4f5a69;
+  --color-cream: #faf7f2;
+  --color-sand: #f2ebe0;
+  --color-line: #e3dacb;
+  --color-sage: #4e6a48;
+  --color-sage-light: #e2eadd;
+  --color-accent: #092d5c;
+  --color-accent-dark: #061f40;
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+/* Anker-Links nicht unter die fixierte Kopfzeile scrollen */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+@utility btn-primary {
+  @apply btn bg-navy text-white hover:bg-navy-dark focus-visible:outline-navy;
+}
+@utility btn-light {
+  @apply btn bg-white text-navy hover:bg-sand focus-visible:outline-white;
+}
+@utility btn-outline {
+  @apply btn border-2 border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white;
+}
+@utility eyebrow {
+  @apply text-sm font-semibold uppercase tracking-[0.18em] text-sage;
+}

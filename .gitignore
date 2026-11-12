@@ -1,0 +1,4 @@
+node_modules
+.DS_Store
+# Originale (Logo, Texte, Bilder) – die Website nutzt Kopien in web/public bzw. Sanity
+material/
