@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   const siteName = settings.siteName ?? "Astivita";
   // Bild beim Teilen (WhatsApp, Facebook, …): im Aufbau mit Kurkuma-Hinweis, danach aus dem Studio oder das Logo
-  const shareImage = underConstruction ? "/og-aufbau.png" : (imageUrl(settings.shareImage, { width: 1200, height: 630 }) ?? "/og.png");
+  const shareImage = underConstruction ? "/og-kurkuma.png" : (imageUrl(settings.shareImage, { width: 1200, height: 630 }) ?? "/og.png");
   const shareAlt = underConstruction ? `${siteName} Hundetherapie – neue Website im Aufbau von Kurkuma Communication` : `${siteName} Hundetherapie`;
   return {
     title: { default: `${siteName} Hundetherapie – Physiotherapie für Hunde in Uezwil AG`, template: `%s | ${siteName} Hundetherapie` },
