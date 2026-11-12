@@ -11,7 +11,8 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
-  use: { baseURL: `http://localhost:${port}`, trace: "retain-on-failure" },
+  // Barrierefreiheit ohne Animationen prüfen (halb eingeblendete Texte würden den Kontrast-Test verfälschen)
+  use: { baseURL: `http://localhost:${port}`, trace: "retain-on-failure", contextOptions: { reducedMotion: "reduce" } },
   projects: [
     // Lokal das vorinstallierte Edge, in GitHub Actions das von Playwright installierte Chromium
     { name: "desktop", use: { ...devices["Desktop Chrome"], channel: process.env.CI ? undefined : "msedge" } },

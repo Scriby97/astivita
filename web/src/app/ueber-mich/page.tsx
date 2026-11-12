@@ -22,9 +22,9 @@ export default async function AboutPage() {
           sizes="(min-width: 768px) 40vw, 100vw"
           crop={{ width: 900, height: 1100 }}
           priority
-          className="aspect-[9/11] rounded-[2rem] rounded-tl-[6rem] md:sticky md:top-28"
+          className="hero-photo aspect-[9/11] rounded-[2rem] rounded-tl-[6rem] md:sticky md:top-28"
         />
-        <div className="flex flex-col gap-6">
+        <div className="hero-in flex flex-col gap-6">
           <p className="eyebrow">Über mich{settings.ownerName ? ` · ${settings.ownerName}` : ""}</p>
           <h1 className="font-display text-5xl font-semibold leading-[1.05] text-navy sm:text-6xl">{settings.aboutTitle ?? "Über mich"}</h1>
           <RichText value={settings.aboutText} className="text-lg leading-relaxed text-muted" />

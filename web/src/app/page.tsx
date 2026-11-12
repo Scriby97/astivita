@@ -11,7 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 sm:pt-14 md:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <div className="flex flex-col gap-6">
+        <div className="hero-in flex flex-col gap-6">
           {settings.heroEyebrow && <p className="eyebrow">{settings.heroEyebrow}</p>}
           <h1 className="font-display text-5xl font-semibold leading-[1.02] text-navy sm:text-6xl lg:text-7xl">{settings.heroTitle}</h1>
           {settings.heroText && <p className="max-w-xl text-lg text-muted sm:text-xl">{settings.heroText}</p>}
@@ -30,12 +30,12 @@ export default async function HomePage() {
           sizes="(min-width: 768px) 45vw, 100vw"
           crop={{ width: 1000, height: 1150 }}
           priority
-          className="aspect-[20/23] rounded-[2rem] rounded-tr-[6rem]"
+          className="hero-photo aspect-[20/23] rounded-[2rem] rounded-tr-[6rem]"
         />
       </section>
 
       {settings.introText && (
-        <section className="mx-auto max-w-3xl px-4 pb-16 text-lg leading-relaxed text-ink sm:px-6 sm:pb-20 sm:text-xl">
+        <section className="reveal mx-auto max-w-3xl px-4 pb-16 text-lg leading-relaxed text-ink sm:px-6 sm:pb-20 sm:text-xl">
           <RichText value={settings.introText} />
         </section>
       )}
@@ -44,7 +44,7 @@ export default async function HomePage() {
 
       {filled(settings.methods) && (
         <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20">
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div className="reveal mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="eyebrow">Angebot</p>
               <h2 className="mt-2 font-display text-4xl font-semibold text-navy sm:text-5xl">{settings.methodsTitle}</h2>
@@ -64,9 +64,9 @@ export default async function HomePage() {
             alt={settings.ownerName ?? "Über mich"}
             sizes="(min-width: 768px) 40vw, 100vw"
             crop={{ width: 900, height: 1000 }}
-            className="aspect-[9/10] rounded-[2rem] rounded-bl-[6rem]"
+            className="reveal aspect-[9/10] rounded-[2rem] rounded-bl-[6rem]"
           />
-          <div className="flex flex-col gap-5">
+          <div className="reveal flex flex-col gap-5">
             <p className="eyebrow">Über mich</p>
             <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">{settings.aboutTitle}</h2>
             <RichText value={settings.aboutText} className="text-lg text-muted" />

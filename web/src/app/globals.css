@@ -48,3 +48,73 @@ h2 {
 @utility eyebrow {
   @apply text-sm font-semibold uppercase tracking-[0.18em] text-sage;
 }
+
+/* ---------- Animationen ----------
+   Alles nur, wenn «Bewegung reduzieren» nicht eingeschaltet ist. Scroll-Effekte hängen an der Scrollposition
+   (nicht an einer Uhr): wer schnell scrollt, sieht nie leere Flächen. Ältere Browser zeigen alles sofort.
+   Einblenden nutzt `translate`, Hover-Effekte `transform` – so stören sie sich nicht. */
+@media (prefers-reduced-motion: no-preference) {
+  /* 1 – Auftritt oben auf der Startseite: Texte nacheinander, Bild mit leichtem «Atemzug» */
+  .hero-in > * {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+  .hero-in > :nth-child(2) { animation-delay: 0.1s; }
+  .hero-in > :nth-child(3) { animation-delay: 0.2s; }
+  .hero-in > :nth-child(4) { animation-delay: 0.3s; }
+  .hero-photo {
+    animation: breathe 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  @supports (animation-timeline: view()) {
+    /* 3 und 6 – Inhalte und Leitsatz gleiten beim Scrollen ein, Karten einer Reihe leicht versetzt */
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+    .reveal-row > :nth-child(3n + 2) { animation-range: entry 8% entry 53%; }
+    .reveal-row > :nth-child(3n + 3) { animation-range: entry 16% entry 61%; }
+
+    /* 2 – Häkchen zeichnen sich beim Hinscrollen, eins nach dem anderen */
+    .tick path {
+      stroke-dasharray: 1;
+      animation: tick linear both;
+      animation-timeline: --tick;
+      animation-range: entry 20% entry 70%;
+    }
+    .tick circle {
+      animation: fade linear both;
+      animation-timeline: --tick;
+      animation-range: entry 0% entry 40%;
+    }
+    .tick-item { view-timeline: --tick block; }
+    .tick-item:nth-child(even) .tick path { animation-range: entry 30% entry 80%; }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    /* 5 – Kopfzeile wird beim Runterscrollen schlanker */
+    .site-logo {
+      animation: shrink-logo linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 160px;
+    }
+  }
+
+  /* 4 – Methoden-Karten heben sich, Bild zoomt sanft */
+  .method-card {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .method-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--color-sage) 45%, transparent);
+    box-shadow: 0 12px 30px -18px rgb(9 45 92 / 0.35);
+  }
+  .method-card img { transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .method-card:hover img { transform: scale(1.04); }
+}
+
+@keyframes rise { from { opacity: 0; translate: 0 24px; } }
+@keyframes breathe { from { opacity: 0; scale: 1.03; } }
+@keyframes fade { from { opacity: 0; } }
+@keyframes tick { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes shrink-logo { to { height: 3.25rem; } }
