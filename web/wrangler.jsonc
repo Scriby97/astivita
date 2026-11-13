@@ -13,5 +13,7 @@
     "not_found_handling": "404-page"
   },
   // Build-Ereignisse (Event Subscription im Dashboard) → worker/build-notify.ts
-  "queues": { "consumers": [{ "queue": "astivita-builds", "max_batch_size": 10, "max_batch_timeout": 5 }] }
+  "queues": { "consumers": [{ "queue": "astivita-builds", "max_batch_size": 10, "max_batch_timeout": 5 }] },
+  // Logs im Dashboard (Worker → Observability → Logs)
+  "observability": { "enabled": true }
 }
