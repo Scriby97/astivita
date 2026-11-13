@@ -39,6 +39,8 @@ Das Datenformat steht doppelt: im Schema (`studio/schemaTypes/siteSettings.ts`) 
 
 Workers & Pages → Projekt aus dem GitHub-Repo, Stammverzeichnis `web`, Build `npm run build`, Variablen aus `.env.example`. Nach jeder Änderung im Studio neu bauen (Deploy-Hook in Sanity → Webhook).
 
+**Fehlgeschlagene Builds** melden sich per ntfy aufs Handy: Queue `astivita-builds` mit Event Subscription (Workers Builds → astivita), Secret `NTFY_TOPIC` am Worker, Code in `web/worker/build-notify.ts`.
+
 ## Noch offen
 
 - Nachname, Strasse und Telefon von Melinda (Impressum braucht eine vollständige Adresse)
