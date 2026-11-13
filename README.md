@@ -30,7 +30,7 @@ Tests: `npm run test:e2e` (baut mit festen Testdaten aus `src/lib/e2e-fixtures.t
 - Projekt `i4ht1xtp` (Name «Astivita», Dataset `production`, öffentlich lesbar) im Konto von Nicolas, angelegt am 13.11.2026.
 - Studio: https://astivita.sanity.studio (`cd studio && npm run deploy`).
 - `npm run seed` hat das Dokument «Website» mit Bettinas Texten angelegt. Es überschreibt nichts, falls das Dokument schon existiert.
-- Wartungsmodus: im Studio unter «Wartung», vorbereitet mit Passwort «hund», zurzeit ausgeschaltet.
+- Wartungsmodus: im Studio unter «Wartung», vorbereitet mit Passwort «asti», zurzeit ausgeschaltet.
 - Vor Aktionen mit der CLI immer `npx sanity debug` prüfen (welches Konto angemeldet ist).
 
 Das Datenformat steht doppelt: im Schema (`studio/schemaTypes/siteSettings.ts`) und als Typ `SiteSettings` in `web/src/lib/sanity.ts` – bei Änderungen beide anpassen.
