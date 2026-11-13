@@ -3,7 +3,7 @@ import {structureTool} from 'sanity/structure'
 import {schemaTypes} from './schemaTypes'
 
 // Sanity-Projekt «Astivita» – Project-ID nach dem Anlegen hier und in sanity.cli.ts eintragen
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'TODO'
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'i4ht1xtp'
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
 // Es gibt genau ein Dokument «Website» – kein "Neu erstellen"/"Löschen" dafür

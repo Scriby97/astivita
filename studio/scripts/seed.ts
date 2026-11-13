@@ -1,7 +1,7 @@
 // Startinhalt: Bettinas Texte (web/src/lib/placeholder.ts) als erstes Dokument «Website» nach Sanity übertragen.
 // Ausführen (einmalig, nach dem Anlegen des Projekts): npm run seed
 // Überschreibt nichts: das Dokument wird nur angelegt, wenn es noch nicht existiert (createIfNotExists).
-// Der Wartungsmodus ist danach eingeschaltet (Passwort «hund»), bis die Website fertig ist.
+// Der Wartungsmodus ist vorbereitet (Passwort «hund»), aber ausgeschaltet – im Studio unter «Wartung» einschaltbar.
 import {getCliClient} from 'sanity/cli'
 import {placeholderSettings} from '../../web/src/lib/placeholder'
 
@@ -41,7 +41,7 @@ await client.createIfNotExists({
   aboutText: blocks(aboutText),
   ...(offerText ? {offerText: blocks(offerText)} : {}),
   ...(privacyText ? {privacyText: blocks(privacyText)} : {}),
-  maintenance: true,
+  maintenance: false,
   maintenanceText: 'Hier entsteht die neue Website von Astivita Hundetherapie – bald geht’s los!',
   previewPassword: 'hund',
 })

@@ -25,13 +25,13 @@ Ohne Sanity-Project-ID zeigt die Seite Bettinas Texte aus `web/src/lib/placehold
 
 Tests: `npm run test:e2e` (baut mit festen Testdaten aus `src/lib/e2e-fixtures.ts`, fängt Web3Forms ab, prüft auch Barrierefreiheit).
 
-## Sanity einrichten (einmalig)
+## Sanity
 
-1. `cd studio && npx sanity debug` – prüfen, mit welchem Konto die CLI angemeldet ist.
-2. Projekt anlegen (`npx sanity init` oder sanity.io/manage), Project-ID in `studio/sanity.config.ts`, `studio/sanity.cli.ts` und `web/.env.local` eintragen.
-3. `npm run seed` – legt das Dokument «Website» mit Bettinas Texten an (Wartungsmodus an, Passwort «hund»).
-4. `npm run deploy` – Studio unter https://astivita.sanity.studio, Bettina als Mitglied einladen.
-5. CORS: `https://astivita.ch` ist nicht nötig (die Seite wird beim Build gebaut), aber für die lokale Vorschau `http://localhost:3000` erlauben.
+- Projekt `i4ht1xtp` (Name «Astivita», Dataset `production`, öffentlich lesbar) im Konto von Nicolas, angelegt am 13.11.2026.
+- Studio: https://astivita.sanity.studio (`cd studio && npm run deploy`).
+- `npm run seed` hat das Dokument «Website» mit Bettinas Texten angelegt. Es überschreibt nichts, falls das Dokument schon existiert.
+- Wartungsmodus: im Studio unter «Wartung», vorbereitet mit Passwort «hund», zurzeit ausgeschaltet.
+- Vor Aktionen mit der CLI immer `npx sanity debug` prüfen (welches Konto angemeldet ist).
 
 Das Datenformat steht doppelt: im Schema (`studio/schemaTypes/siteSettings.ts`) und als Typ `SiteSettings` in `web/src/lib/sanity.ts` – bei Änderungen beide anpassen.
 
