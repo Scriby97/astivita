@@ -1,4 +1,4 @@
-// Cloudflare Worker: liefert die statische Seite aus `out/` aus und meldet fehlgeschlagene Builds per ntfy
+// Cloudflare Worker: liefert die statische Seite aus `out/` aus, leitet www auf astivita.ch um und meldet fehlgeschlagene Builds per ntfy
 // (build-notify.ts, sobald Queue «astivita-builds» und Secret NTFY_TOPIC eingerichtet sind).
 
 import { buildNotification, NtfyError, sendToNtfy, type BuildEvent } from "./build-notify";
@@ -13,6 +13,12 @@ type QueueBatch = { messages: { body: unknown; ack(): void; retry(options?: { de
 
 const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
+    // www.astivita.ch → astivita.ch (eine einzige Adresse für Google und Lesezeichen)
+    const url = new URL(request.url);
+    if (url.hostname === "www.astivita.ch") {
+      url.hostname = "astivita.ch";
+      return Response.redirect(url.toString(), 301);
+    }
     return env.ASSETS.fetch(request);
   },
 

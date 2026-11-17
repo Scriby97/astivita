@@ -9,8 +9,9 @@ export const nav: NavLink[] = [
 
 export const requestHref = "/kontakt#anfrage";
 
-// Phase «im Aufbau»: Die Seite läuft als Vorschau auf workers.dev (Konto Kurcom), astivita.ch ist noch nicht verbunden.
-// Beim Teilen erscheint ein Bild mit Astivita- und Kurkuma-Logo («Neue Website im Aufbau von …»).
-// Beim Aufschalten: siteUrl auf "https://astivita.ch" und underConstruction auf false stellen.
+// Hauptadresse der Website (Google, Sitemap, Bild beim Teilen). astivita.ch läuft seit November 2026 über Cloudflare (Konto Kurcom).
+export const siteUrl = "https://astivita.ch";
+
+// Phase «im Aufbau»: Beim Teilen erscheint das Astivita-Logo mit Kurkuma-Stempel («Neue Website im Aufbau von …»).
+// Wenn die Website fertig ist (Fotos, Impressum): auf false stellen – dann gilt das Bild aus dem Studio.
 export const underConstruction = true;
-export const siteUrl = underConstruction ? "https://astivita.kurcom.workers.dev" : "https://astivita.ch";
