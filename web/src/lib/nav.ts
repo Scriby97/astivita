@@ -11,7 +11,3 @@ export const requestHref = "/kontakt#anfrage";
 
 // Hauptadresse der Website (Google, Sitemap, Bild beim Teilen). astivita.ch läuft seit November 2026 über Cloudflare (Konto Kurcom).
 export const siteUrl = "https://astivita.ch";
-
-// Phase «im Aufbau»: Beim Teilen erscheint das Astivita-Logo mit Kurkuma-Stempel («Neue Website im Aufbau von …»).
-// Wenn die Website fertig ist (Fotos, Impressum): auf false stellen – dann gilt das Bild aus dem Studio.
-export const underConstruction = true;

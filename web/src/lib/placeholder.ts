@@ -2,13 +2,13 @@ import type { SiteSettings } from "./sanity";
 
 // Startinhalt: die Texte von Bettina (November 2026). Wird angezeigt, solange kein Sanity-Projekt verbunden ist,
 // und dient als Vorlage für den ersten Inhalt im Studio (studio/scripts/seed.ts).
-// TODO vor dem Aufschalten: Nachname, Strasse und evtl. Telefon von Melinda (Impressum braucht eine vollständige Adresse).
 export const placeholderSettings: SiteSettings = {
   siteName: "Astivita",
   tagline: "Hundetherapie in Uezwil",
-  ownerName: "Melinda",
-  address: "Uezwil AG",
-  email: "info@astivita.ch",
+  ownerName: "Melinda Hecht",
+  address: "Letten 11\n5619 Uezwil",
+  phone: "079 517 36 30",
+  email: "melinda@astivita.ch",
 
   heroEyebrow: "Hundetherapie in Uezwil",
   heroTitle: "Hundetherapie – für mehr Bewegungsfreude und Lebensqualität",
