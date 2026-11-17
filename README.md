@@ -43,7 +43,9 @@ Workers & Pages → Projekt aus dem GitHub-Repo, Stammverzeichnis `web`, Build `
 
 ## Noch offen
 
-- Nachname, Strasse und Telefon von Melinda (Impressum braucht eine vollständige Adresse)
 - Fotos (Startseite, Über mich, optional pro Methode)
-- Web3Forms-Key für info@astivita.ch
-- Sanity-Projekt, Cloudflare, DNS von astivita.ch
+- Wix-Abo von Melinda: erst kündigen, wenn geklärt ist, wie astivita.ch verlängert wird (Domain bei Wix registriert, DNS bei Cloudflare)
+
+## Anleitung für Bettina
+
+`docs/Anleitung-Astivita-Website.pdf` ist der PDF-Export von [«So pflegst du die Astivita-Website»](https://claude.ai/artifact/XmoFHu3sADG3feWsbNHQxS). Nach Änderungen am Studio dort nachführen und neu exportieren.
